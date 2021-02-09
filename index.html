@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <div class="content">
+    <h1>Budget Calculator</h1>
+    <div class="numbers">
+      <div class="budget">
+        <label for="budget">Budget
+          <input class="input-data" value="11000" type="number" name="budget" required readonly>
+        </label>
+      </div>
+      <div class="storage">
+        <label for="storage">Savings
+          <input class="input-data" value="185" type="number" name="storage" required readonly>
+        </label>
+      </div>
+    </div>
+    <div class="navbar">
+      <div class="type">
+        <select class="input-navbar">
+          <option>Income</option>
+          <option>Expenses</option>
+          <option>Savings</option>
+        </select>
+      </div>
+      <div class="description">
+        <label for="description">
+          <input class="input-navbar" type="text" placeholder="add description" name="description" required>
+        </label>
+      </div>
+      <div class="value">
+        <label for="value">
+          <input class="input-navbar" type="number" placeholder="value" name="value" required>
+        </label>
+      </div>
+      <button class="apply">Apply</button>
+    </div>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <td class="thead">Type</td>
+            <td class="thead">Description</td>
+            <td class="thead">Value</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Income</td>
+            <td>2000</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Income</td>
+            <td>3500</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Expenses</td>
+            <td>500</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Savings</td>
+            <td>1000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="script/main.js"></script>
+</body>
+</html>
