@@ -13,35 +13,33 @@
     <h1>Budget Calculator</h1>
     <div class="numbers">
       <div class="budget">
-        <label for="budget">Budget
-          <input class="input-data" value="11000" type="number" name="budget" required readonly>
-        </label>
+        <h2>Budget</h2>
+        <span id="budget">0</span>
       </div>
-      <div class="storage">
-        <label for="storage">Savings
-          <input class="input-data" value="185" type="number" name="storage" required readonly>
-        </label>
+      <div class="savings">
+        <h2>Savings</h2>
+        <span id="savings">0</span>
       </div>
     </div>
     <div class="navbar">
       <div class="type">
-        <select class="input-navbar">
-          <option>Income</option>
-          <option>Expenses</option>
-          <option>Savings</option>
+        <select id="type" class="input-navbar">
+          <option value="income">Income</option>
+          <option value="expenses">Expenses</option>
+          <option value="savings">Savings</option>
         </select>
       </div>
       <div class="description">
         <label for="description">
-          <input class="input-navbar" type="text" placeholder="add description" name="description" required>
+          <input class="input-navbar" id="description" type="text" placeholder="add description" name="description" required>
         </label>
       </div>
-      <div class="value">
-        <label for="value">
-          <input class="input-navbar" type="number" placeholder="value" name="value" required>
+      <div class="amount">
+        <label for="amount">
+          <input class="input-navbar" id="amount" type="number" placeholder="amount" name="amount" required>
         </label>
       </div>
-      <button class="apply">Apply</button>
+      <button id="button" class="apply">Apply</button>
     </div>
     <div class="table">
       <table>
