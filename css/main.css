@@ -113,3 +113,8 @@ button {
   border: none;
   height: 34px;
 }
+
+.logItem td {
+  padding: 0.5rem;
+  text-align: center;
+}
