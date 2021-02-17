@@ -1,15 +1,15 @@
 const button = document.querySelector("#button");
 const logTable = document.querySelector('.table-element');
+const buttonCleanAll = document.querySelector("#cleanAll");
 
 const INCOME = "income";
 const EXPENSES = "expenses";
 
-let arrayData = [];
-//let arrayData = JSON.parse(localStorage.getItem('logs'));
+let arrayData = JSON.parse(localStorage.getItem("logs"));
 
-/*if(arrayData !== null) {
+if (arrayData !== null) {
   appendData();
-}*/
+}
 
 button.addEventListener('click', function(){
   let totalBudget = parseInt(document.querySelector('#budget').innerHTML);
@@ -44,13 +44,13 @@ button.addEventListener('click', function(){
   }
 })
 
-
 function createLogData (caseName, description, currentAmount){
   let logData = {
     caseName: caseName,
     description: description.value,
     amount: currentAmount
   }
+  console.log(arrayData);
   arrayData.push(logData);
   appendData();
   console.log(arrayData);
@@ -69,6 +69,7 @@ function appendData() {
     tr.classList = 'logItem';
     let tdCase = document.createElement('td');
     tdCase.innerText = log.caseName;
+    tdCase.classList = 'amount-type';
     let tdDescription = document.createElement('td');
     tdDescription.innerText = log.description;
     let tdAmount = document.createElement('td');
@@ -79,11 +80,25 @@ function appendData() {
     tr.appendChild(tdAmount);
 
     logTable.appendChild(tr);
-    //localStorage.setItem('logs', JSON.stringify(arrayData));
+    localStorage.setItem("logs", JSON.stringify(arrayData));
+
+    setColorType(tdCase.innerText);
   })
 }
 
+function setColorType(type) {
+  const amountType = document.getElementsByClassName('amount-type');
+  for(let i = 0; i < amountType.length; i++) {
+    if (type === "Income") {
+      amountType[amountType.length - 1].style.backgroundColor = 'DarkSeaGreen';
+    } else if (type === "Expenses") {
+      amountType[amountType.length - 1].style.backgroundColor = 'Salmon';
+    } else {
+      amountType[amountType.length - 1].style.backgroundColor = 'Violet';
+    }
+  }  
+}
 
-
-
-
+buttonCleanAll.addEventListener('click', function(){
+  arrayData = new Array();
+})
