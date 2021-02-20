@@ -117,7 +117,7 @@ button {
 }
 
 .logItem td {
-  padding: 0.5rem;
+  padding: 0.2rem;
   text-align: center;
   border: 1px solid silver;
 }
@@ -135,4 +135,12 @@ button {
 
 .delete-data__btn {
   background: rgb(223, 17, 17);
+}
+
+.filter {
+  width: 100%;
+}
+
+.filter-block {
+  text-align: right;
 }
