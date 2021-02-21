@@ -7,6 +7,7 @@ const selection = document.querySelector("#selectInput");
 const INCOME = "income";
 const EXPENSES = "expenses";
 
+let logsDeleteButtons;
 let arrayData = JSON.parse(localStorage.getItem("logs"));
 
 if (arrayData !== null) {
@@ -76,6 +77,9 @@ function appendData() {
     tdDescription.innerText = log.description;
     let tdAmount = document.createElement('td');
     tdAmount.innerText = log.amount;
+    let tdDelete = document.createElement('td');
+    tdDelete.innerHTML = '&times';
+    tdDelete.classList.add('delete-item');
 
     if (tdCase.innerText === "Income") {
       tr.setAttribute("data-status","income");
@@ -89,8 +93,10 @@ function appendData() {
     tr.appendChild(tdCase);
     tr.appendChild(tdDescription);
     tr.appendChild(tdAmount);
+    tr.appendChild(tdDelete);
 
     logTable.appendChild(tBody);
+    getDeleteButtons();
     localStorage.setItem("logs", JSON.stringify(arrayData));
 
     setColorType(tdCase.innerText);
@@ -135,10 +141,22 @@ selection.addEventListener('change', () => {
   sortData(selectedResult);
 })
 
+function getDeleteButtons(){
+  logsDeleteButtons = Array.from(document.querySelectorAll('.delete-item'));
+  logsDeleteButtons.forEach(button =>{
+    let logTitle = button.previousSibling.previousSibling.previousSibling.innerText;
+    button.addEventListener('click', () => {
+      deleteLog(logTitle);
+    })
+  })
+}
 
-buttonCleanAll.addEventListener('click', function(){
-  arrayData = [];
-  tBody.innerHTML = "";
-})
-
-
+function deleteLog(logTitle){
+  for(let i = 0; i < arrayData.length; i++) {
+    if(arrayData[i].caseName == logTitle){
+      arrayData.splice(i, 1);
+    }
+  }
+  localStorage.setItem('logs', JSON.stringify(arrayData));
+  appendData();
+}

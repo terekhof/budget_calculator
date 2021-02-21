@@ -35,11 +35,15 @@ tbody {
 
 .thead {
   border: 0.5px solid rgb(7, 7, 7);
-  min-width: 300px;
+  width: 300px;
   text-align: center;
   background: rgb(76, 65, 224);
   padding: 0.5rem;
   color: white;
+}
+
+.thead:last-child {
+  width: 50px;
 }
 
 td {
@@ -128,13 +132,13 @@ button {
   font-size: 1.25rem;
 } 
 
-.delete-data {
-  text-align: right;
-  margin-bottom: 1.5rem;
+.delete-item {
+  font-size: 1.5rem;
 }
 
-.delete-data__btn {
-  background: rgb(223, 17, 17);
+.delete-item:hover {
+  color: blueviolet;
+  cursor: pointer;
 }
 
 .filter {
