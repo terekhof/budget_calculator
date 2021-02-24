@@ -20,6 +20,7 @@ button.addEventListener('click', function(){
   let currentAmount = parseInt(document.querySelector("#amount").value);
   let description = document.querySelector('#description');
   let actionType = document.querySelector('#type');
+
   switch(actionType.value) {
     case INCOME:
       totalBudget += currentAmount;
@@ -53,10 +54,8 @@ function createLogData (caseName, description, currentAmount){
     description: description.value,
     amount: currentAmount
   }
-  console.log(arrayData);
   arrayData.push(logData);
   appendData();
-  console.log(arrayData);
 }
 
 function appendData() {
@@ -117,17 +116,15 @@ function setColorType(type) {
 }
 
 function sortData(selectedResult){
-  let logs = logTable.rows;
-  let logsHeader = logTable.rows[0]
-  
+  let logs = tBody.rows;
+
   for (log of logs) {
-    logsHeader.style.display = "table-row";
     log.style.display = "none";
-    if (log.innerHTML.includes("Income") && selectedResult === "Income") {
+    if (log.dataset.status === "income" && selectedResult === "Income") {
       log.style.display = "table-row"; 
-    } else if (log.innerHTML.includes("Expenses") && selectedResult === "Expenses") {
+    } else if (log.dataset.status === "expenses" && selectedResult === "Expenses") {
       log.style.display = "table-row"; 
-    } else if (log.innerHTML.includes("Savings") && selectedResult === "Savings") {
+    } else if (log.dataset.status === "savings" && selectedResult === "Savings") {
       log.style.display = "table-row";
     } else if (selectedResult === "All") {
       log.style.display = "table-row";
@@ -137,7 +134,6 @@ function sortData(selectedResult){
 
 selection.addEventListener('change', () => {
   selectedResult = selection.options[selection.selectedIndex].text;
-  console.log(selectedResult);
   sortData(selectedResult);
 })
 
