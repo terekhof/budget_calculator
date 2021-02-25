@@ -156,3 +156,41 @@ function deleteLog(logTitle){
   localStorage.setItem('logs', JSON.stringify(arrayData));
   appendData();
 }
+
+console.log(arrayData)
+
+const newArray = arrayData.slice(0, 5);
+
+console.log(newArray);
+
+/*
+let logs = tBody.rows;
+let arrayLogs = Array.prototype.slice.call(logs);
+
+const list_element = document.getElementById('list');
+const pagination_element = document.getElementById('pagination');
+
+let current_page = 1;
+let rows = 5;
+
+function displayList(arrayLogs, wrapper, rows_per_page, page) {
+  wrapper.innerHTML = "";
+  page--;
+
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+  let paginatedLogs = arrayLogs.slice(start, end);
+
+  for (let i = 0; i < paginatedLogs.length; i++) {
+    let log = paginatedLogs[i];
+
+    let log_element = document.createElement('div');
+    log_element.classList.add('item');
+    log_element.innerText = log;
+
+    wrapper.appendChild(log_element);
+  }
+}
+
+displayList(arrayLogs, list_element, rows, current_page);
+*/
